@@ -58,4 +58,4 @@ Access the web application in your browser at `http://127.0.0.1:5000`.
 
 ### Contact
 
-For any questions or suggestions, please contact Jaden Tripp at jadenitripp@gmail.com.
+For any questions or suggestions, please create an issue here on Github, or comment on X: https://x.com/jadotripp42/status/1812620615142330655
