@@ -1,0 +1,31 @@
+User Input: A beautiful giant squid in the deep sea, glowing blue light on its body and face, the huge tentacles hanging down from its head, close-up shot, movie footage resembling the style of National Geographic.
+
+Output:
+Here are 5 diverse Midjourney v6 prompts based on your input, each exploring different aspects and techniques:
+
+<prompts>
+<prompt>
+<text>Bioluminescent giant squid, enormous tentacles cascading, piercing blue light emanating from chromatophores, extreme close-up of alien-like eyes, abyssal darkness surrounds, hyper-realistic underwater cinematography, National Geographic documentary style --ar 16:9 --q 1 --s 100 --no murky water, blurriness</text>
+<explanation>This prompt uses a 16:9 aspect ratio (--ar 16:9) to mimic widescreen movie footage. The highest quality setting (--q 1) ensures maximum detail in the squid's intricate features. A moderate stylize value (--s 100) maintains a balance between realism and artistic enhancement. The --no parameter excludes murky water and blurriness to ensure a crisp, clear image.</explanation>
+</prompt>
+
+<prompt>
+<text>Colossal squid illuminated by ethereal azure bioluminescence, "writhing tentacles" in inky blackness, extreme macro shot of textured skin, cinematic 70mm film grain, Jacques Cousteau inspired underwater exploration, deep sea ambiance --ar 4:3 --chaos 20 --q 1 --s 150 --seed 42</text>
+<explanation>A 4:3 aspect ratio (--ar 4:3) is used here to evoke a classic documentary feel. The chaos value of 20 introduces slight variations while maintaining consistency. The higher stylize value (--s 150) enhances the cinematic quality. A specific seed (--seed 42) is used for reproducibility, allowing for variations on this particular composition.</explanation>
+</prompt>
+
+<prompt>
+<text>Gigantic cephalopod with pulsating cerulean light patterns, undulating tentacles creating abstract shapes, ultra-wide angle lens capturing full body, "bioluminescent particles" floating in water, James Cameron's deep-sea documentary aesthetic --ar 21:9 --q 1 --s 200 --weird 300 --no fish, rocks</text>
+<explanation>The ultra-wide 21:9 aspect ratio (--ar 21:9) creates a cinematic panorama. A high stylize value (--s 200) combined with a moderate weird value (--weird 300) produces a unique, slightly unconventional aesthetic while maintaining recognizability. The --no parameter ensures focus solely on the squid.</explanation>
+</prompt>
+
+<prompt>
+<text>Monumental squid emerging from abyssal depths, "iridescent blue bioluminescence" tracing its silhouette, dramatic chiaroscuro lighting, tentacles forming intricate fractals, 8K resolution underwater footage, Planet Earth II visual style --ar 2:1 --q 1 --s 100 --stop 90 --no color except blue</text>
+<explanation>The 2:1 aspect ratio (--ar 2:1) provides a wide view suitable for showcasing the squid's full form. The stop parameter (--stop 90) is used to create a slightly softer, more atmospheric look. The --no parameter restricts the color palette, emphasizing the blue bioluminescence.</explanation>
+</prompt>
+
+<prompt>
+<text>Gargantuan squid with "hypnotic blue eye" in extreme close-up, bioluminescent patterns resembling constellations, tentacles extending into dark void, underwater IMAX camera perspective, Sir David Attenborough nature documentary aesthetics, "crystal clear water" --ar 4:3 --q 1 --s 50 --chaos 50 --tile</text>
+<explanation>The 4:3 aspect ratio (--ar 4:3) is used again for a classic documentary feel. A low stylize value (--s 50) maintains high prompt accuracy, while a higher chaos value (--chaos 50) introduces more variation in the bioluminescent patterns. The --tile parameter is used to create a seamless, repeatable pattern, which could be interesting for the bioluminescent effect.</explanation>
+</prompt>
+</prompts>
