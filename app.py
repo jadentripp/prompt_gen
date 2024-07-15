@@ -22,7 +22,7 @@ def parse_file(file_path):
 def index():
     outputs = []
     outputs_dir = 'outputs/claude'
-    for filename in os.listdir(outputs_dir):
+    for filename in sorted(os.listdir(outputs_dir), key=lambda x: x.split('_')[:2], reverse=True):
         if filename.endswith('.txt'):
             file_path = os.path.join(outputs_dir, filename)
             parsed_content = parse_file(file_path)

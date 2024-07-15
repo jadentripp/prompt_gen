@@ -7,27 +7,30 @@
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; }
         h1 { color: #333; border-bottom: 2px solid #333; padding-bottom: 10px; }
-        h2 { color: #666; margin-top: 30px; }
-        .output { background-color: #f9f9f9; border: 1px solid #ddd; padding: 20px; margin-bottom: 30px; border-radius: 5px; }
-        .user-input { font-weight: bold; color: #0066cc; }
-        .claude-output { white-space: pre-wrap; margin-bottom: 20px; }
-        .prompt { background-color: #fff; border: 1px solid #e0e0e0; padding: 15px; margin-top: 15px; border-radius: 3px; }
-        .prompt-text { font-weight: bold; margin-bottom: 10px; }
-        .prompt-explanation { font-style: italic; color: #666; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 10px; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <h1>Claude Outputs</h1>
+    <h1>Claude Midjourney Prompts</h1>
+    <ul>
     {% for output in outputs %}
-        <div class="output">
+        <li><a href="#{{ output.filename }}">{{ output.filename }}</a></li>
+    {% endfor %}
+    </ul>
+    {% for output in outputs %}
+        <div id="{{ output.filename }}">
             <h2>{{ output.filename }}</h2>
-            <p class="user-input">User Input: {{ output.content.user_input }}</p>
-            <div class="claude-output">{{ output.content.output }}</div>
+            <p><strong>User Input:</strong> {{ output.content.user_input }}</p>
+            <p><strong>Output:</strong></p>
+            <pre>{{ output.content.output }}</pre>
             <h3>Prompts:</h3>
             {% for prompt in output.content.prompts %}
-                <div class="prompt">
-                    <p class="prompt-text">{{ prompt.text }}</p>
-                    <p class="prompt-explanation">{{ prompt.explanation }}</p>
+                <div>
+                    <p><strong>{{ prompt.text }}</strong></p>
+                    <p><em>{{ prompt.explanation }}</em></p>
                 </div>
             {% endfor %}
         </div>
