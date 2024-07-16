@@ -1,0 +1,31 @@
+User Input: Futuristic warrior with high-tech armor, neon lights, advanced weaponry, and stealth capabilities, standing in a dystopian cityscape
+
+Output:
+Here are 5 diverse Midjourney v6 prompts based on your input, each exploring different aspects of the futuristic warrior concept:
+
+<prompts>
+<prompt>
+<text>Cybernetic samurai, iridescent nano-armor, pulsating neon circuitry, plasma katana, cloaking device engaged, perched atop a crumbling skyscraper, neon-lit megalopolis sprawling below, toxic smog, holographic advertisements, --ar 9:16 --stylize 750 --chaos 25 --q 1</text>
+<explanation>This prompt uses a vertical aspect ratio (9:16) to emphasize the warrior's elevated position and the cityscape below. High stylization (750) enhances the futuristic aesthetic, while moderate chaos (25) introduces some unpredictability. Maximum quality ensures detailed rendering of the complex scene. The combination of traditional samurai elements with high-tech features creates an intriguing contrast.</explanation>
+</prompt>
+
+<prompt>
+<text>Sleek female supersoldier, graphene-infused exosuit, bioluminescent accents, retractable plasma rifle, active camouflage shimmering, standing in a rain-slicked alley, towering arcologies looming overhead, swarms of surveillance drones, --ar 4:5 --stylize 250 --weird 500 --seed 42</text>
+<explanation>This prompt uses a 4:5 aspect ratio for a balanced composition. Lower stylization (250) maintains prompt accuracy, while high weirdness (500) introduces unconventional elements. A specific seed (42) is used for reproducibility. The focus on a female character and the detailed environment adds diversity to the concept.</explanation>
+</prompt>
+
+<prompt>
+<text>Hulking mech-suit warrior, quantum-shielded armor plates, EMP cannon arm, stealth field generator backpack, visor HUD displaying threat analysis, striding through a desolate cyber-bazaar, broken holograms flickering, augmented reality graffiti, --ar 3:2 --stylize 500 --q 1 --chaos 50</text>
+<explanation>The 3:2 aspect ratio is ideal for capturing the full figure and surrounding environment. Moderate stylization (500) balances artistic flair with prompt accuracy. High chaos (50) introduces varied and unexpected elements. The focus on a larger, mech-suit design offers a different take on the warrior concept.</explanation>
+</prompt>
+
+<prompt>
+<text>Ethereal nano-swarm warrior, constantly shifting form, millions of microscopic robots glowing with bioluminescence, phasing through solid matter, infiltrating a high-security corporate fortress, adaptive camouflage blending with surroundings, data streams visible in the air, --ar 1:1 --stylize 1000 --weird 1000 --no "solid body, distinct shape" --q 1</text>
+<explanation>A square aspect ratio (1:1) focuses on the unique form of the nano-swarm warrior. Maximum stylization (1000) and weirdness (1000) push the boundaries of the concept, creating a highly abstract and unusual interpretation. The --no parameter ensures the warrior remains formless. This prompt explores an extreme and imaginative version of futuristic stealth technology.</explanation>
+</prompt>
+
+<prompt>
+<text>Battle-worn veteran cyborg, exposed cybernetic enhancements, retro-futuristic armor with neon patina, shoulder-mounted rail gun, holo-map projector on forearm, standing guard at the entrance of a subterranean rebel base, mix of high-tech and scavenged gear, underground hydroponics farm visible in background, --ar 16:9 --stylize 350 --chaos 75 --stop 90</text>
+<explanation>The wide 16:9 aspect ratio captures the full scene of the warrior and the rebel base. Moderate stylization (350) maintains a balance between artistic enhancement and realism. High chaos (75) and early stopping (90) create a slightly unfinished, gritty aesthetic fitting the dystopian theme. This prompt explores a more lived-in, practical version of the futuristic warrior concept.</explanation>
+</prompt>
+</prompts>

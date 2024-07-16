@@ -1,0 +1,31 @@
+User Input: A surrealist interpretation of a diver experiencing a vision induced by luminescent coral
+
+Output:
+Here are 5 diverse Midjourney v6 prompts based on your input of a surrealist interpretation of a diver experiencing a vision induced by luminescent coral:
+
+<prompts>
+<prompt>
+<text>Underwater surrealist scene, deep-sea diver surrounded by swirling, glowing coral tendrils, eyes closed in trance, vibrant bioluminescent colors, dreamlike distortions, oil painting style --ar 16:9 --stylize 750 --chaos 25 --quality 1</text>
+<explanation>This prompt uses a wide aspect ratio (16:9) to create a cinematic, immersive underwater scene. The high stylize value (750) enhances the surrealist and dreamlike qualities, while a moderate chaos (25) introduces some unexpected elements. Maximum quality ensures fine details in the coral and diver's expression. The oil painting style adds a classic surrealist touch reminiscent of Dalí or Magritte.</explanation>
+</prompt>
+
+<prompt>
+<text>Fractured reality, diver's helmet cracking open revealing a cosmic mindscape, tendrils of neon coral weaving through brain matter, "VISION" etched in the glass, hyper-detailed digital art --ar 1:1 --seed 42 --weird 500 --no bubbles, fish</text>
+<explanation>A square aspect ratio (1:1) focuses attention on the central concept. A set seed (42) allows for reproducibility. The weird parameter (500) introduces unconventional elements, perfect for surrealism. The "no" parameter excludes common underwater elements to keep focus on the surreal vision. The word "VISION" in quotes ensures its inclusion in the image.</explanation>
+</prompt>
+
+<prompt>
+<text>Melting diver suit transforming into bioluminescent coral reef, consciousness expanding, underwater Salvador Dalí inspired landscape, soft pastels::1 vivid neons::2 --ar 4:5 --stylize 1000 --stop 90 --tile</text>
+<explanation>The 4:5 aspect ratio is ideal for a vertical composition, emphasizing the diver's transformation. Maximum stylize (1000) pushes the surrealist style to its limit. The stop parameter at 90 creates a slightly unfinished, dreamlike quality. The tile option allows this surreal pattern to be repeated seamlessly. Prompt weighting emphasizes vivid neons over soft pastels for a more psychedelic effect.</explanation>
+</prompt>
+
+<prompt>
+<text>Microscopic view of diver's iris, luminous coral polyps forming intricate mandala patterns, neural networks intertwining with marine bioluminescence, electron microscope aesthetics meets art nouveau --ar 1:1 --quality 1 --style raw --chaos 75</text>
+<explanation>A square aspect ratio (1:1) works well for the mandala-like composition. Maximum quality captures the intricate details. The raw style reduces automatic beautification for a more scientific feel, contrasting with the art nouveau influence. High chaos (75) encourages unique and unexpected formations in the coral patterns and neural networks.</explanation>
+</prompt>
+
+<prompt>
+<text>Time-lapse sequence of diver's metamorphosis, {5 panels, 7 panels} showing stages of coral-human fusion, surreal underwater evolution, inspired by Dalí's "Persistence of Memory" meets Ernst Haeckel's scientific illustrations --ar 16:9 --stylize 500 --seed 123 --weird 250</text>
+<explanation>A wide aspect ratio (16:9) accommodates the multi-panel time-lapse sequence. Moderate stylize (500) balances surrealism with illustrative clarity. A set seed (123) ensures consistency across the metamorphosis stages. The weird parameter (250) adds a touch of the unconventional without overpowering the scientific illustration style. The curly braces offer two options for the number of panels, allowing for variation in the generated images.</explanation>
+</prompt>
+</prompts>

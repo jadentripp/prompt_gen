@@ -1,0 +1,31 @@
+User Input: lo fi jazz hip hop instrumental
+
+Output:
+Here are 5 diverse Udio music generation prompts based on your input of "lo fi jazz hip hop instrumental":
+
+<prompts>
+<prompt>
+<text>Mellow lo-fi hip-hop beat with smooth jazz piano samples. Downtempo rhythm at 75 BPM. Vinyl crackle ambience. Warm, filtered Rhodes chords. Soft brushed drums. Deep, rounded bass line. Occasional trumpet riffs. [Instrumental]</text>
+<explanation>This prompt combines lo-fi hip-hop elements with jazz instrumentation. The [Instrumental] tag ensures no vocals are generated. Specific tempo and instrument descriptions create a clear sonic palette. The vinyl crackle adds to the lo-fi aesthetic.</explanation>
+</prompt>
+
+<prompt>
+<text>Fusion of 90s boom-bap and cool jazz. Sampled upright bass and ride cymbal. Laid-back groove at 85 BPM. Muted trumpet melodies. Dusty drum breaks. Lo-fi tape saturation effect. Subtle vibraphone accents. [Instrumental] [Hook: Jazzy saxophone riff]</text>
+<explanation>This prompt blends 90s hip-hop with cool jazz elements. The [Hook] descriptor adds structure to the instrumental. Specific instrument and effect descriptions (e.g., tape saturation) help shape the sound. The [Instrumental] tag is used to prevent vocal generation.</explanation>
+</prompt>
+
+<prompt>
+<text>Chillhop beat with modal jazz influences. Dreamy electric piano chords. Lo-fi drum samples with slight swing. Ambient rain sounds in the background. Melodic double bass lines. Occasional flute flourishes. Tempo: 70 BPM. [Instrumental]</text>
+<explanation>This prompt focuses on the chillhop subgenre while incorporating modal jazz elements. Specific tempo and ambient sound descriptions add depth. The [Instrumental] tag ensures a vocal-free track. Instrument choices (electric piano, double bass, flute) reinforce the jazz influence.</explanation>
+</prompt>
+
+<prompt>
+<text>Experimental lo-fi jazz-hop fusion. Glitchy drum patterns. Sampled and chopped jazz guitar licks. Atmospheric synth pads. Broken beat rhythm at 80 BPM. Deep sub-bass. Reversed piano melodies. [Instrumental] [Drop: Intense drum fill with jazz sample chops]</text>
+<explanation>This prompt pushes the boundaries of the genre by incorporating experimental elements. The [Drop] descriptor adds dynamic interest to the instrumental. Specific production techniques (glitchy drums, chopped samples) create a unique sound. The [Instrumental] tag is used to keep the track vocal-free.</explanation>
+</prompt>
+
+<prompt>
+<text>Smooth lo-fi jazz hip-hop with bossa nova influence. Gentle nylon string guitar arpeggios. Soft electronic drums with brush samples. Mellow trumpet solos. Warm electric bass groove. Light bongo percussion. Subtle vinyl noise. Tempo: 78 BPM. [Instrumental]</text>
+<explanation>This prompt introduces a bossa nova element to the lo-fi jazz hip-hop blend. Specific instrument choices (nylon string guitar, bongos) reinforce the bossa nova influence. The tempo and vinyl noise descriptions help shape the overall feel. The [Instrumental] tag ensures no vocals are generated.</explanation>
+</prompt>
+</prompts>

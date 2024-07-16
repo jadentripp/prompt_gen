@@ -3,37 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Outputs</title>
+    <title>Prompt Outputs</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; }
-        h1 { color: #333; border-bottom: 2px solid #333; padding-bottom: 10px; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin-bottom: 10px; }
-        a { color: #0066cc; text-decoration: none; }
+        :root {
+            --primary-color: #0066cc;
+            --background-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: var(--text-color);
+        }
+        #nav {
+            background-color: var(--background-color);
+            padding: 1rem;
+        }
+        #content {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        h1, h2 { margin-top: 0; }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        li { margin-bottom: 0.5rem; }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
         a:hover { text-decoration: underline; }
+        .output {
+            white-space: pre-wrap;
+            background-color: var(--background-color);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        .prompt-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        .collapsible {
+            cursor: pointer;
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
+            padding: 0.5rem 0;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .content { display: none; }
+        .active { display: block; }
+        .pagination {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .pagination button {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @media (min-width: 768px) {
+            body { flex-direction: row; }
+            #nav {
+                width: 300px;
+                height: 100vh;
+                overflow-y: auto;
+            }
+            #content { padding: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <h1>Claude Midjourney Prompts</h1>
-    <ul>
-    {% for output in outputs %}
-        <li><a href="#{{ output.filename }}">{{ output.filename }}</a></li>
-    {% endfor %}
-    </ul>
-    {% for output in outputs %}
-        <div id="{{ output.filename }}">
-            <h2>{{ output.filename }}</h2>
-            <p><strong>User Input:</strong> {{ output.content.user_input }}</p>
-            <p><strong>Output:</strong></p>
-            <pre>{{ output.content.output }}</pre>
-            <h3>Prompts:</h3>
-            {% for prompt in output.content.prompts %}
-                <div>
-                    <p><strong>{{ prompt.text }}</strong></p>
-                    <p><em>{{ prompt.explanation }}</em></p>
+    <nav id="nav">
+        <h1>Prompt Outputs</h1>
+        <ul>
+        {% for prompt_type in outputs.keys() %}
+            <li><a href="#{{ prompt_type }}">{{ prompt_type.capitalize() }}</a></li>
+        {% endfor %}
+        </ul>
+    </nav>
+    <main id="content">
+        {% for prompt_type, prompt_outputs in outputs.items() %}
+            <section id="{{ prompt_type }}">
+                <h2>{{ prompt_type.capitalize() }} Prompts</h2>
+                {% set prompts_per_page = 5 %}
+                {% set total_pages = ((prompt_outputs|length - 1) // prompts_per_page) + 1 %}
+                {% for page in range(total_pages) %}
+                    <div class="page" id="{{ prompt_type }}-page-{{ page + 1 }}" {% if page != 0 %}hidden{% endif %}>
+                        {% for output in prompt_outputs[page * prompts_per_page:(page + 1) * prompts_per_page] %}
+                            <article class="prompt-item">
+                                <button class="collapsible">{{ output.content.user_input }}</button>
+                                <div class="content">
+                                    <p><strong>User Input:</strong> {{ output.content.user_input }}</p>
+                                    <p><strong>Output:</strong></p>
+                                    <div class="output">{{ output.content.output | safe }}</div>
+                                </div>
+                            </article>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="pagination">
+                    {% for page in range(total_pages) %}
+                        <button onclick="showPage('{{ prompt_type }}', {{ page + 1 }})">{{ page + 1 }}</button>
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </div>
-    {% endfor %}
+            </section>
+        {% endfor %}
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.collapsible').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    });
+
+    function showPage(promptType, pageNumber) {
+        document.querySelectorAll(`[id^="${promptType}-page-"]`).forEach(page => page.hidden = true);
+        document.getElementById(`${promptType}-page-${pageNumber}`).hidden = false;
+    }
+    </script>
 </body>
 </html>

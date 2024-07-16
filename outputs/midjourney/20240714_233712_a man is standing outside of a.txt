@@ -1,0 +1,31 @@
+User Input: a man is standing outside of a monument in an isolated desert landscape, in the style of futuristic cityscapes, pink and azure, bulbous, gediminas pranckevicius, detailed world-building, mars ravelo, matte photo
+
+Output:
+Here are 5 diverse Midjourney v6 prompts based on your input:
+
+<prompts>
+<prompt>
+<text>Lone explorer in exosuit standing before a colossal, bulbous monument, isolated Martian desert landscape, futuristic cityscape on the horizon, pink sky with azure accents, highly detailed world-building, matte photo finish --ar 16:9 --stylize 750 --chaos 25</text>
+<explanation>This prompt uses a wide aspect ratio (16:9) to capture the expansive desert landscape and distant cityscape. The high stylize value (750) enhances the futuristic and artistic elements, while a moderate chaos (25) introduces some variation without losing coherence. The description focuses on specific details to capture the essence of the given style and artists.</explanation>
+</prompt>
+
+<prompt>
+<text>Cybernetic human gazing at a bioluminescent, bulbous monument, barren pink desert, floating azure structures in background, intricate world-building details, Gediminas Pranckevicius-inspired lighting, Mars Ravelo-esque character design, matte photo realism --ar 4:5 --quality 1 --seed 42 --weird 500</text>
+<explanation>This prompt uses a vertical aspect ratio (4:5) to emphasize the monument and sky. The highest quality setting ensures maximum detail, while a specific seed (42) allows for reproducibility. The weird parameter (500) is used to introduce unconventional elements to the futuristic setting. The description incorporates specific artist influences and detailed elements to guide the image generation.</explanation>
+</prompt>
+
+<prompt>
+<text>Holographic man observing a pulsating, bulbous monument, terraformed Martian landscape, pink sand dunes with azure oasis, futuristic biodomes in distance, detailed alien flora, matte photo aesthetic --ar 3:2 --stylize 250 --no humans, traditional buildings --chaos 50</text>
+<explanation>This prompt uses a 3:2 aspect ratio, common in photography, to balance the landscape and sky. A lower stylize value (250) is used to maintain more prompt accuracy, while higher chaos (50) encourages more varied results. The --no parameter excludes additional humans and traditional buildings to focus on the futuristic elements. The description builds a detailed world with specific colors and elements.</explanation>
+</prompt>
+
+<prompt>
+<text>Astronaut silhouette against massive, luminous bulbous monument, desolate pink desert, azure energy streams in sky, futuristic city ruins, intricate mechanical details, Gediminas Pranckevicius color palette, Mars Ravelo character influence, matte photo style --ar 1:1 --quality 1 --stop 90 --weird 750</text>
+<explanation>This prompt uses a square aspect ratio (1:1) for a balanced composition. The highest quality setting is used for maximum detail, but the stop parameter (90) is employed to create a slightly more abstract look. A high weird value (750) is used to push the boundaries of the futuristic concept. The description combines specific artist influences with detailed world-building elements.</explanation>
+</prompt>
+
+<prompt>
+<text>Towering bulbous monument with man in hover-suit, pink crystalline desert, azure auroras, futuristic oasis city, detailed alien technology, Gediminas Pranckevicius atmospheric perspective, Mars Ravelo-inspired sci-fi elements, matte photo realism --ar 16:9 --stylize 500 --tile --chaos 75</text>
+<explanation>This prompt returns to a wide aspect ratio (16:9) to capture the expansive landscape. A moderate stylize value (500) balances artistic enhancement with prompt accuracy. The tile parameter is used to create a seamless, repeatable pattern, which could be interesting for a sci-fi desert scene. High chaos (75) is used to encourage highly varied and unexpected results. The description focuses on creating a rich, detailed futuristic world.</explanation>
+</prompt>
+</prompts>

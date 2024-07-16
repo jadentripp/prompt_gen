@@ -1,0 +1,31 @@
+User Input: a futuristic hotel floating under water, in the style of futuristic art, piles/stacks, massurrealism, ferrania p30, aquamarine, futuristic victorian, precisionist lines
+
+Output:
+Here are 5 diverse prompts based on your input, utilizing Midjourney v6 techniques and parameters:
+
+<prompts>
+<prompt>
+<text>Underwater floating futuristic hotel, stacked geometric modules, precisionist lines, aquamarine bioluminescence, Victorian-inspired ornate details, massurrealist elements, Ferrania P30 film aesthetic --ar 16:9 --stylize 750 --chaos 25 --quality 1</text>
+<explanation>This prompt uses a wide aspect ratio (16:9) to capture the expansive underwater scene. High stylization (750) enhances the futuristic and artistic elements, while moderate chaos (25) introduces some variation. Maximum quality ensures detailed rendering of the complex structure. The combination of futuristic and Victorian elements with massurrealist touches creates an intriguing visual contrast.</explanation>
+</prompt>
+
+<prompt>
+<text>Monumental underwater hotel tower, piled translucent pods, futuristic Art Nouveau curves, precisionist vertical lines, swirling aquamarine currents, ghostly Ferrania P30 monochrome effect --ar 4:5 --stylize 500 --weird 300 --seed 42</text>
+<explanation>A taller aspect ratio (4:5) emphasizes the tower's height. Moderate stylization (500) balances artistic interpretation with prompt accuracy, while the weird parameter (300) introduces unconventional elements. A specific seed (42) is used for reproducibility. This prompt merges futuristic concepts with Art Nouveau for a unique aesthetic, enhanced by the monochrome film effect.</explanation>
+</prompt>
+
+<prompt>
+<text>Biomimetic underwater hotel complex, coral-inspired stacks, massurrealist sea creature hybrids, precisionist aquamarine geometry, futuristic Victorian submersibles, Ferrania P30 high-contrast lighting --ar 1:1 --stylize 300 --quality 1 --chaos 50 --no straight lines, rectangles</text>
+<explanation>A square aspect ratio (1:1) creates a balanced composition. Lower stylization (300) allows for more prompt-accurate results, while high chaos (50) encourages diverse interpretations. The 'no' parameter excludes conventional shapes for a more organic feel. This prompt focuses on blending natural and futuristic elements with a surrealist twist.</explanation>
+</prompt>
+
+<prompt>
+<text>Crystalline underwater hotel megastructure, fractalized aquamarine geometry, stacked prismatic habitats, futuristic Victorian observatories, massurrealist spatial distortions, Ferrania P30 deep shadows --ar 3:2 --stylize 600 --stop 90 --tile</text>
+<explanation>The 3:2 aspect ratio is ideal for a landscape-oriented scene. High stylization (600) enhances the artistic interpretation. The stop parameter at 90 creates a slightly unfinished, dreamy effect. The tile option allows this image to be used as a seamless pattern. This prompt emphasizes geometric and crystalline structures with a touch of Victorian futurism.</explanation>
+</prompt>
+
+<prompt>
+<text>Retrofuturistic underwater hotel city, Art Deco-inspired stacked towers, precisionist aquamarine light rays, massurrealist floating islands, Ferrania P30 film grain, steampunk Victorian submarines --ar 16:9 --stylize 400 --weird 500 --quality 1 --iw 2 "20,000 Leagues Under the Sea"</text>
+<explanation>Another wide aspect ratio (16:9) captures the cityscape. Moderate stylization (400) is balanced with a high weird value (500) for unexpected elements. The iw parameter is set to 2, giving more weight to any image input. The quoted text adds a thematic reference. This prompt combines various retro and futuristic styles for a complex, layered aesthetic.</explanation>
+</prompt>
+</prompts>
