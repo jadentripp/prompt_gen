@@ -76,15 +76,19 @@ class PromptComposer:
             self.print_colored("\n=== Welcome to Prompt Gen ===", "blue")
             self.print_colored("Instructions:", "blue")
             self.print_colored("- Enter 'exit' to quit.")
-            self.print_colored("- Enter 'midjourney' or 'udio' to select the prompt type.")
+            self.print_colored("- Enter '1' for midjourney or '2' for udio.")
 
-            prompt_type = self.user_input("\nSelect prompt type (midjourney/udio): ").lower().strip()
+            prompt_type = self.user_input("\nSelect prompt type (1/2): ").strip()
             
             if prompt_type == "exit":
                 self.print_colored('Exiting... Goodbye!', 'red')
                 break
             
-            if prompt_type not in ['midjourney', 'udio']:
+            if prompt_type == '1':
+                prompt_type = 'midjourney'
+            elif prompt_type == '2':
+                prompt_type = 'udio'
+            else:
                 self.print_colored('Invalid prompt type. Please try again.', 'red')
                 continue
 
