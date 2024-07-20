@@ -1,61 +1,95 @@
-## README
+# AI Prompt Generator
 
-### Project Overview
+## Project Overview
 
-This project is a Prompt Generator designed to create and manage AI prompts using the Anthropic API and Flask for the web interface. It includes Python scripts for generating prompts and a simple web application for viewing the outputs.
+This project is an AI Prompt Generator that creates prompts for Midjourney v6 image generation and Udio music generation using the Anthropic API. It includes a command-line interface for generating prompts and a Flask web application for viewing the outputs.
 
-### Project Structure
+## Project Structure
 
-- **.gitignore**: Specifies files and directories to be ignored by Git.
-- **app.py**: Main script for running the prompt generator and Flask web application.
-- **main.py**: Script for handling prompt generation.
-- **outputs/**: Directory where generated prompts and outputs are stored.
-- **prompts/**: Directory containing prompt templates.
-- **templates/**: Directory for storing HTML templates used in the web application.
+- `app.py`: Flask web application for viewing generated prompts
+- `main.py`: Command-line interface for generating prompts
+- `prompts/`: Directory containing prompt templates
+  - `midjourney.txt`: Template for Midjourney v6 prompts
+  - `udio.txt`: Template for Udio music prompts
+- `outputs/`: Directory where generated prompts are stored
+- `templates/`: HTML templates for the web application
 
-### Usage
+## Setup and Usage
 
-#### Running the Application
+1. Install required dependencies:
+   ```
+   pip install flask anthropic termcolor python-dotenv
+   ```
 
-To run the prompt generator application, use the following command:
+2. Set up your Anthropic API key in a `.env` file:
+   ```
+   ANTHROPIC_API_KEY=your_api_key_here
+   ```
 
-```sh
-python main.py
-```
+3. Run the prompt generator:
+   ```
+   python main.py
+   ```
 
-#### Running the Flask Web Application
+4. Run the Flask web application:
+   ```
+   python app.py
+   ```
+   Access the web interface at `http://127.0.0.1:5000`
 
-To run the Flask web application for viewing generated outputs, use the following command:
+## Features
 
-```sh
-python app.py
-```
+### Prompt Generation (main.py)
 
-Access the web application in your browser at `http://127.0.0.1:5000`.
+- Supports Midjourney v6 and Udio prompt generation
+- Uses Anthropic's Claude 3.5 Sonnet model
+- Saves generated prompts to files with timestamps
 
-### Project Components
+### Web Interface (app.py)
 
-#### Prompt Generation Script (main.py)
+- Displays generated prompts in a responsive layout
+- Supports pagination for large numbers of prompts
+- Parses and formats XML output from the prompt generator
 
-- **PromptComposer**: Class responsible for generating prompts using the Anthropic API.
-- **Methods**:
-  - `user_input(prompt, color='cyan')`: Fetch colored input from the user.
-  - `print_colored(message, color='magenta')`: Print colored text to the console.
-  - `generate_completion(question)`: Generate completion using Anthropic API.
-  - `save_output(question, user_input, output)`: Save the generated output to a file.
-  - `run()`: Main function to execute the script and interact with the user.
+## Prompt Templates
 
-#### Flask Web Application (app.py)
+### Midjourney v6 (midjourney.txt)
 
-- **index()**: Route to render the index page with a list of generated outputs.
-- **parse_file(file_path)**: Function to parse the content of the output files.
+- Generates 5 diverse image prompts
+- Incorporates Midjourney v6 best practices and parameters
+- Includes explanations for each generated prompt
 
-### Directory Structure
+Key parameters:
+- Aspect ratio (--ar)
+- Chaos (--chaos)
+- Quality (--quality)
+- Seed (--seed)
+- Stylize (--stylize)
+- Weird (--weird)
+- Tile (--tile)
+- No (negative prompting)
 
-- **outputs/**: Contains generated prompt outputs.
-- **prompts/**: Contains prompt templates.
-- **templates/**: Contains HTML templates for the Flask web application.
+### Udio Music (udio.txt)
 
-### Contact
+- Generates 5 diverse music prompts
+- Focuses on genre, mood, instruments, tempo, and lyrical themes
+- Utilizes Udio-specific features and parameters
 
-For any questions or suggestions, please create an issue here on Github, or comment on X: https://x.com/jadotripp42/status/1812620615142330655
+Key features:
+- Custom lyrics
+- Instrumental mode
+- Manual mode
+- Extension mode
+- Remixing
+- Inpainting
+
+## Development
+
+- The project uses Flask for the web framework
+- Jinja2 is used for HTML templating
+- CSS is used for responsive design
+- JavaScript handles dynamic content loading and pagination
+
+## Contributing
+
+Contributions are welcome! Please submit pull requests or open issues for any bugs or feature requests.
