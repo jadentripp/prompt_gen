@@ -1,24 +1,18 @@
 import os
-import anthropic
+from anthropic import Anthropic, AsyncAnthropic, APIError, APIConnectionError, RateLimitError, APIStatusError
+import asyncio
 from termcolor import colored
 from dotenv import load_dotenv
 import re
 from datetime import datetime
-import json
 
-# Load environment variables to set up the Anthropic API Key
 load_dotenv()
 
-
 class PromptComposer:
-
     def __init__(self):
-        # Set up the Anthropic API Key
-        api_key = os.getenv("ANTHROPIC_API_KEY")
-        self.client = anthropic.Client(api_key=api_key)
-        self.model = "claude-3-5-sonnet-20240620"
-
-        # Load prompt templates
+        self.client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        self.async_client = AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        self.model = "claude-3-5-sonnet-20240620"  # Updated to the latest model version
         self.prompts = {
             'midjourney': self.load_prompt('prompts/midjourney.txt'),
             'udio': self.load_prompt('prompts/udio.txt')
@@ -29,87 +23,98 @@ class PromptComposer:
         with open(file_path, 'r') as file:
             return file.read()
 
-    @staticmethod
-    def user_input(prompt, color='cyan'):
-        """Fetch colored input from the user"""
-        return input(colored(prompt, color))
+    async def generate_completion_async(self, prompt_type, question):
+        try:
+            response = await self.async_client.messages.create(
+                model=self.model,
+                max_tokens=1000,
+                temperature=0.7,
+                system=self.prompts[prompt_type],
+                messages=[{"role": "user", "content": question}]
+            )
+            return response.content, response.usage
+        except (APIConnectionError, RateLimitError, APIStatusError, APIError) as e:
+            print(f"API error: {type(e).__name__} - {str(e)}")
+            return None, None
 
-    @staticmethod
-    def print_colored(message, color='magenta'):
-        """Print colored text to the console"""
-        print(colored(message, color))
+    def generate_completion_stream(self, prompt_type, question):
+        try:
+            return self.client.messages.create(
+                model=self.model,
+                max_tokens=1000,
+                temperature=0.7,
+                system=self.prompts[prompt_type],
+                messages=[{"role": "user", "content": question}],
+                stream=True
+            )
+        except (APIConnectionError, RateLimitError, APIStatusError, APIError) as e:
+            print(f"API error: {type(e).__name__} - {str(e)}")
+            return None
 
-    def generate_completion(self, prompt_type, question):
-        """Generate completion using Anthropic API"""
-        message = self.client.messages.create(
-            model=self.model,
-            max_tokens=1000,
-            temperature=0.7,
-            system=self.prompts[prompt_type],
-            messages=[
-                {
-                    "role": "user",
-                    "content": question
-                }
-            ]
-        )
-        return message.content[0].text if isinstance(message.content, list) else message.content
+    def parse_output(self, output):
+        if isinstance(output, str):
+            items = re.findall(r'(\d+)\.\s*(.*?)(?=\n\n\d+\.|\Z)', output, re.DOTALL)
+            if items:
+                return [{'number': item[0], 'prompt': item[1].strip()} for item in items]
+        return [{'number': '1', 'prompt': str(output)}]
 
-    def save_output(self, prompt_type, question, user_input, output):
-        # Set up the output directory
+    def save_output(self, prompt_type, question, output):
         path = f"outputs/{prompt_type}"
         os.makedirs(path, exist_ok=True)
-
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         sanitized_question = re.sub(r'[^\w\-_\. ]', '_', question[:30])
         filename = f"{timestamp}_{sanitized_question}.txt"
-
         with open(os.path.join(path, filename), "w") as file:
-            file.write(f"User Input: {user_input}\n\n")
-            file.write(f"Output:\n{output}")
-
+            file.write(f"User Input: {question}\n\nOutput:\n{output}")
         return os.path.join(path, filename)
 
     def run(self):
-        """The main function to execute the script"""
         while True:
-            self.print_colored("\n=== Welcome to Prompt Gen ===", "blue")
-            self.print_colored("Instructions:", "blue")
-            self.print_colored("- Enter 'exit' to quit.")
-            self.print_colored("- Enter '1' for midjourney or '2' for udio.")
+            print(colored("\n=== Prompt Gen ===", "blue", attrs=["bold"]))
+            print(colored("Enter 'q' to quit.", "magenta"))
+            print(colored("Select prompt type:", "magenta"))
+            print(colored("1. Midjourney", "cyan"))
+            print(colored("2. Udio", "cyan"))
 
-            prompt_type = self.user_input("\nSelect prompt type (1/2): ").strip()
+            prompt_type = input(colored("\nChoice (1/2/q): ", "yellow")).strip().lower()
             
-            if prompt_type == "exit":
-                self.print_colored('Exiting... Goodbye!', 'red')
+            if prompt_type == 'q':
+                print(colored('Exiting... Goodbye!', 'red', attrs=["bold"]))
                 break
             
-            if prompt_type == '1':
-                prompt_type = 'midjourney'
-            elif prompt_type == '2':
-                prompt_type = 'udio'
-            else:
-                self.print_colored('Invalid prompt type. Please try again.', 'red')
+            prompt_type = 'midjourney' if prompt_type == '1' else 'udio' if prompt_type == '2' else None
+            if not prompt_type:
+                print(colored('Invalid choice. Please try again.', 'red'))
                 continue
 
-            question = self.user_input(f"\nPlease describe the {'image' if prompt_type == 'midjourney' else 'music'} you'd like to create: ")
-
-            if question.lower().strip() == "exit":
-                self.print_colored('Exiting... Goodbye!', 'red')
-                break
-
-            # Generate the completion
-            output = self.generate_completion(prompt_type, question)
+            question = input(colored(f"\nDescribe the {'image' if prompt_type == 'midjourney' else 'music'} (or 'q' to quit): ", "green")).strip()
             
-            # Print the generated output
-            self.print_colored("\nGenerated Output:", "cyan")
-            self.print_colored(output, "yellow")
+            if question.lower() == 'q':
+                print(colored('Exiting... Goodbye!', 'red', attrs=["bold"]))
+                break
+            
+            if not question:
+                print(colored('Please provide a description.', 'red'))
+                continue
 
-            # Save the output to a file
-            saved_file = self.save_output(prompt_type, question, question, output)
-            self.print_colored(f"\nSaved output to: {saved_file}\n")
-            self.print_colored("-" * 80)
+            print(colored("\nGenerating...", "yellow"))
+            stream = self.generate_completion_stream(prompt_type, question)
+            if not stream:
+                continue
 
-# Run the script
+            print(colored("\nGenerated Output:", "cyan", attrs=["bold"]))
+            full_output = ""
+            for chunk in stream:
+                if chunk.type == "content_block_delta":
+                    print(chunk.delta.text, end='', flush=True)
+                    full_output += chunk.delta.text
+
+            if full_output:
+                saved_file = self.save_output(prompt_type, question, full_output)
+                print(colored(f"\n\nSaved to: {saved_file}", "magenta"))
+                print(colored(f"Token usage: {stream.usage}", "yellow"))
+            print(colored("-" * 80, "magenta"))
+
 if __name__ == "__main__":
-    PromptComposer().run()
+    composer = PromptComposer()
+    composer.run()
