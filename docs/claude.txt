@@ -1,0 +1,180 @@
+# Comprehensive Guide to Using Claude 3.5 Sonnet API
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [API Key Setup](#api-key-setup)
+4. [Basic Usage](#basic-usage)
+5. [Advanced Usage](#advanced-usage)
+6. [Streaming Responses](#streaming-responses)
+7. [Error Handling](#error-handling)
+8. [Best Practices](#best-practices)
+9. [Troubleshooting](#troubleshooting)
+
+## Introduction
+
+Claude 3.5 Sonnet is the most intelligent model in the Claude 3.5 family, combining top-tier performance with improved speed. It excels in:
+
+- Advanced research and analysis
+- Complex problem-solving
+- Sophisticated language understanding and generation
+- High-level strategic planning
+
+## Installation
+
+Install the Anthropic Python library:
+
+```bash
+pip install anthropic
+```
+
+Ensure you have Python 3.7 or higher installed.
+
+## API Key Setup
+
+Set your API key as an environment variable:
+
+```bash
+export ANTHROPIC_API_KEY='your-api-key-here'
+```
+
+Alternatively, you can pass it directly when initializing the client:
+
+```python
+from anthropic import Anthropic
+
+client = Anthropic(api_key='your-api-key-here')
+```
+
+## Basic Usage
+
+Here's a basic example of using Claude 3.5 Sonnet:
+
+```python
+import anthropic
+
+client = anthropic.Anthropic()
+
+message = client.messages.create(
+    model="claude-3-5-sonnet-20240620",
+    max_tokens=1000,
+    temperature=0,
+    system="You are a world-class poet. Respond only with short poems.",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Why is the ocean salty?"
+                }
+            ]
+        }
+    ]
+)
+print(message.content)
+```
+
+Key parameters:
+- `model`: Always use `"claude-3-5-sonnet-20240620"` for this model.
+- `max_tokens`: Limits the length of the response.
+- `temperature`: Controls randomness (0 for deterministic responses).
+- `system`: Sets instructions or persona for Claude.
+- `messages`: List of message objects with `role` and `content`.
+
+## Advanced Usage
+
+### Async Usage
+
+For asynchronous operations:
+
+```python
+from anthropic import AsyncAnthropic
+import asyncio
+
+client = AsyncAnthropic()
+
+async def main():
+    message = await client.messages.create(
+        model="claude-3-5-sonnet-20240620",
+        max_tokens=1000,
+        messages=[{"role": "user", "content": "Hello, Claude"}],
+    )
+    print(message.content)
+
+asyncio.run(main())
+```
+
+### Token Counting
+
+Monitor token usage:
+
+```python
+message = client.messages.create(...)
+print(message.usage)  # Usage(input_tokens=25, output_tokens=13)
+```
+
+## Streaming Responses
+
+Stream responses for real-time output:
+
+```python
+stream = client.messages.create(
+    model="claude-3-5-sonnet-20240620",
+    max_tokens=1000,
+    messages=[{"role": "user", "content": "Tell me a story"}],
+    stream=True,
+)
+for event in stream:
+    print(event.type)
+    if event.type == 'content_block_delta':
+        print(event.delta.text, end='', flush=True)
+```
+
+## Error Handling
+
+Implement robust error handling:
+
+```python
+import anthropic
+from anthropic import Anthropic
+
+client = Anthropic()
+
+try:
+    message = client.messages.create(
+        model="claude-3-5-sonnet-20240620",
+        max_tokens=1000,
+        messages=[{"role": "user", "content": "Hello, Claude"}],
+    )
+except anthropic.APIConnectionError as e:
+    print("Connection error:", e)
+except anthropic.RateLimitError as e:
+    print("Rate limit exceeded. Retrying after a delay...")
+except anthropic.APIStatusError as e:
+    print(f"API error: {e.status_code}")
+    print(e.response)
+except anthropic.APIError as e:
+    print("Unexpected error:", e)
+```
+
+## Best Practices
+
+1. Use system prompts to control Claude's behavior and output format.
+2. Keep messages concise and clear for optimal performance.
+3. Use appropriate `max_tokens` to control response length.
+4. Implement proper error handling and retries for production use.
+5. Use streaming for long responses or real-time interactions.
+6. Monitor and optimize token usage to manage costs.
+
+## Troubleshooting
+
+- If experiencing connection issues, check your internet connection and API key validity.
+- For rate limit errors, implement exponential backoff in your retry logic.
+- Enable debug logging for detailed information:
+  ```bash
+  export ANTHROPIC_LOG=debug
+  ```
+- For unexpected behavior, verify you're using the correct model version and parameters.
+
+Remember to always refer to the [official Anthropic documentation](https://docs.anthropic.com) for the most up-to-date information on Claude 3.5 Sonnet and its capabilities.
